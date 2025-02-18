@@ -101,12 +101,16 @@ typedef enum IJKLogLevel {
 NS_ASSUME_NONNULL_BEGIN
 @interface IJKFFMoviePlayerController : NSObject <IJKMediaPlayback>
 
+@property (nonatomic, assign) BOOL controlAudioSession;
+
 - (id)initWithContentURL:(NSURL *)aUrl
              withOptions:(IJKFFOptions * _Nullable)options;
 
 - (id)initWithMoreContent:(NSURL *)aUrl
               withOptions:(IJKFFOptions * _Nullable)options
                withGLView:(UIView<IJKVideoRenderingProtocol> *)glView;
+
+- (void)setAudioFilter:(NSString *)filter;
 
 - (void)prepareToPlay;
 - (void)play;

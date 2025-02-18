@@ -17,6 +17,7 @@
 
 #import "IJKAppDelegate.h"
 #import "IJKDemoMainViewController.h"
+#import <ffmpegkit/FFmpegKit.h>
 
 @implementation IJKAppDelegate
 
@@ -30,6 +31,12 @@
     self.window.rootViewController = self.viewController;
 
     [self.window makeKeyAndVisible];
+    
+    NSLog(@"HOME = %@", NSHomeDirectory());
+    
+    FFmpegSession *session = [FFmpegKit execute:@"-filters"];
+    NSString *string =  [session getOutput];
+    NSLog(@"output = %@", string);
     
     return YES;
 }

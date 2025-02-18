@@ -22,6 +22,8 @@
 
 @interface IJKVideoViewController : UIViewController
 
+@property(atomic, assign) BOOL openFilter;
+
 @property(atomic,strong) NSURL *url;
 @property(strong,nonatomic) NSString* manifest;
 @property(atomic, retain) id<IJKMediaPlayback> player;

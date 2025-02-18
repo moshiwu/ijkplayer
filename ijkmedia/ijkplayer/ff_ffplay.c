@@ -2129,6 +2129,7 @@ static int audio_thread(void *arg)
                                frame->format, frame->ch_layout.nb_channels)    ||
                 av_channel_layout_compare(&is->audio_filter_src.ch_layout, &frame->ch_layout) ||
                 is->audio_filter_src.freq           != frame->sample_rate ||
+                ffp->af_changed == 1 ||
                 is->auddec.pkt_serial               != last_serial;
 
                 if (reconfigure) {
