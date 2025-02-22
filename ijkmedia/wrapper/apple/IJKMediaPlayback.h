@@ -90,9 +90,9 @@ typedef NS_ENUM(NSInteger, IJKMPMovieTimeOption) {
 @property(nonatomic)            float currentAudioExtraDelay;
 // 字幕额外延迟，供用户调整
 @property(nonatomic)            float currentSubtitleExtraDelay;
-// 单位：ms
+// 单位：秒
 @property(nonatomic, readonly)  NSTimeInterval duration;
-// 单位：s
+// 单位：秒
 @property(nonatomic, readonly)  NSTimeInterval playableDuration;
 @property(nonatomic, readonly)  NSInteger bufferingProgress;
 

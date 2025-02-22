@@ -28,8 +28,9 @@ TODO: Add long description of the pod here.
 
   #metal 2.0 required
   s.osx.deployment_target = '10.11'
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '13.0'
   s.tvos.deployment_target = '12.0'
+  s.static_framework = true
 
   s.osx.pod_target_xcconfig = {
     'ALWAYS_SEARCH_USER_PATHS' => 'YES',
@@ -133,6 +134,11 @@ TODO: Add long description of the pod here.
   s.osx.vendored_libraries = 'FFToolChain/build/product/macos/universal/**/*.a'
   s.osx.frameworks = 'Cocoa', 'AudioUnit', 'OpenGL', 'GLKit', 'CoreImage'
   s.ios.frameworks = 'UIKit', 'OpenGLES'
+  if ENV['sim'] == '1'
+    s.ios.vendored_libraries = 'FFToolChain/build/product/ios/universal-simulator/**/*.a'
+  else
+    s.ios.vendored_libraries = 'FFToolChain/build/product/ios/universal/**/*.a'
+  end
   s.tvos.frameworks = 'UIKit', 'OpenGLES'
 
   s.library = 'z', 'iconv', 'xml2', 'bz2', 'c++', 'lzma'
