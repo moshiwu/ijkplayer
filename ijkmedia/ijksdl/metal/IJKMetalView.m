@@ -635,7 +635,7 @@ mp_format * mp_get_metal_format(uint32_t cvpixfmt);
         return NO;
     }
     //not dispatch to main thread, use current sub thread (ff_vout) draw
-    [self draw];
+//    [self draw];
     
     return YES;
 }

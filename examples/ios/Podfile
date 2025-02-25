@@ -7,10 +7,10 @@ target 'IJKMediaDemo' do
 
   # Pods for IJKMediaDemo
 
-  platform :ios, '12.2'
+  platform :ios, '13.0'
 
   pod 'IJKMediaPlayerKit', :path => '../../'
-  pod 'ffmpeg-kit', :path => '/Users/moqiaowen/Downloads/ffmpeg-kit'
+#  pod 'ffmpeg-kit', :path => '/Users/moqiaowen/Downloads/ffmpeg-kit'
 end
 
 post_install do |installer|

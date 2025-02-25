@@ -1,21 +1,16 @@
 PODS:
-  - ffmpeg-kit (6.0)
   - IJKMediaPlayerKit (0.11.9)
 
 DEPENDENCIES:
-  - ffmpeg-kit (from `/Users/moqiaowen/Downloads/ffmpeg-kit`)
   - IJKMediaPlayerKit (from `../../`)
 
 EXTERNAL SOURCES:
-  ffmpeg-kit:
-    :path: "/Users/moqiaowen/Downloads/ffmpeg-kit"
   IJKMediaPlayerKit:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  ffmpeg-kit: 0ba6c1e7b2aa234745a7a623e34c316db9968e0b
-  IJKMediaPlayerKit: a0602b431c39bb759ad32ab98d0ea0e2a62d6179
+  IJKMediaPlayerKit: 9a8542b15b2ba47326868c0e511bddbacc59407d
 
-PODFILE CHECKSUM: b1eb4dbba456deb27af10563929d1309df447bd0
+PODFILE CHECKSUM: 2b3991b8e0224d34278fd7e63e492e58381d69df
 
 COCOAPODS: 1.16.2

@@ -131,7 +131,7 @@
 //    [ttt setAudioFilter:@"rubberband=pitch=1.2"];
     
 //    [ttt setAudioFilter:@"[0:a]bass=g=10, treble=g=5, stereowiden, surround[a]; [1:a]acompressor, anequalizer=f=1000:width_type=o:width=200, afade=in:st=0:d=10, chorus=0.7:0.9:55:0.4:0.25:2, aecho=0.8:0.9:1000:0.3"];
-    [ttt setAudioFilter:@"bass=g=10, treble=g=5, stereowiden, surround"];
+//    [ttt setAudioFilter:@"bass=g=10, treble=g=5, stereowiden, surround"];
 
     
     IJKSDLSubtitlePreference p = self.player.subtitlePreference;

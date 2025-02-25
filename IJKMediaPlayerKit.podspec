@@ -32,40 +32,29 @@ TODO: Add long description of the pod here.
   s.tvos.deployment_target = '12.0'
   s.static_framework = true
 
-  s.osx.pod_target_xcconfig = {
-    'ALWAYS_SEARCH_USER_PATHS' => 'YES',
-    'HEADER_SEARCH_PATHS' => [
-      '$(inherited)',
-      '${PODS_TARGET_SRCROOT}/FFToolChain/build/product/macos/universal/ffmpeg/include',
-      '${PODS_TARGET_SRCROOT}/FFToolChain/build/product/macos/universal/bluray/include',
-      '${PODS_TARGET_SRCROOT}/FFToolChain/build/product/macos/universal/dvdread/include',
-      '${PODS_TARGET_SRCROOT}/FFToolChain/build/product/macos/universal/ass/include',
-      '${PODS_TARGET_SRCROOT}/ijkmedia'
-    ],
-    'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) IJK_USE_METAL_2=1',
-    'METAL_LIBRARY_OUTPUT_DIR' => '${CONFIGURATION_BUILD_DIR}/IJKMediaPlayerKit.framework/Resources',
-    'MTL_LANGUAGE_REVISION' => 'Metal20'
-  }
-
   s.ios.pod_target_xcconfig = {
     'ALWAYS_SEARCH_USER_PATHS' => 'YES',
-    'HEADER_SEARCH_PATHS[sdk=iphoneos*]' => '$(inherited) ${PODS_TARGET_SRCROOT}/ijkmedia ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/ffmpeg/include ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/dvdread/include ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/ass/include ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/bluray/include',
-    'HEADER_SEARCH_PATHS[sdk=iphonesimulator*]' => '$(inherited) ${PODS_TARGET_SRCROOT}/ijkmedia ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/ffmpeg/include ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/dvdread/include ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/ass/include ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/bluray/include',
-    'LIBRARY_SEARCH_PATHS[sdk=iphoneos*]' => '$(inherited) ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/ass/lib $(inherited) ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/uavs3d/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/dav1d/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/dvdread/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/ffmpeg/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/freetype/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/fribidi/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/harfbuzz/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/openssl/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/opus/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/unibreak/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/smb2/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/bluray/lib',
-    'LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*]' => '$(inherited) ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/ass/lib $(inherited) ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/uavs3d/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/dav1d/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/dvdread/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/ffmpeg/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/freetype/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/fribidi/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/harfbuzz/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/openssl/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/opus/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/unibreak/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/smb2/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/bluray/lib',
-    'OTHER_LDFLAGS' => '$(inherited) -l"opus" -l"crypto" -l"ssl" -l"dav1d" -l"dvdread" -l"freetype" -l"fribidi" -l"harfbuzz" -l"harfbuzz-subset" -l"unibreak" -l"ass" -l"uavs3d" -l"avcodec" -l"avdevice" -l"avfilter" -l"avformat" -l"avutil" -l"swresample" -l"swscale" -l"smb2" -l"bluray"',
-    'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) IJK_USE_METAL_2=1',
-    'METAL_LIBRARY_OUTPUT_DIR' => '${CONFIGURATION_BUILD_DIR}/IJKMediaPlayerKit.framework',
-    'MTL_LANGUAGE_REVISION' => 'Metal20'
-  }
-
-  s.tvos.pod_target_xcconfig = {
-    'ALWAYS_SEARCH_USER_PATHS' => 'YES',
-    'HEADER_SEARCH_PATHS[sdk=appletvos*]' => '$(inherited) ${PODS_TARGET_SRCROOT}/ijkmedia ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal/ffmpeg/include ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal/dvdread/include ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal/ass/include ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal/bluray/include',
-    'HEADER_SEARCH_PATHS[sdk=appletvsimulator*]' => '$(inherited) ${PODS_TARGET_SRCROOT}/ijkmedia ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal-simulator/ffmpeg/include ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal-simulator/dvdread/include ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal-simulator/ass/include ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal-simulator/bluray/include',
-    'LIBRARY_SEARCH_PATHS[sdk=appletvos*]' => '$(inherited) ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal/ass/lib $(inherited) ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal/uavs3d/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal/dav1d/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal/dvdread/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal/ffmpeg/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal/freetype/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal/fribidi/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal/harfbuzz/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal/openssl/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal/opus/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal/unibreak/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal/smb2/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal/bluray/lib',
-    'LIBRARY_SEARCH_PATHS[sdk=appletvsimulator*]' => '$(inherited) ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal-simulator/ass/lib $(inherited) ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal-simulator/uavs3d/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal-simulator/dav1d/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal-simulator/dvdread/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal-simulator/ffmpeg/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal-simulator/freetype/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal-simulator/fribidi/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal-simulator/harfbuzz/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal-simulator/openssl/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal-simulator/opus/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal-simulator/unibreak/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal-simulator/smb2/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/tvos/universal-simulator/bluray/lib',
-    'OTHER_LDFLAGS' => '$(inherited) -l"opus" -l"crypto" -l"ssl" -l"dav1d" -l"dvdread" -l"freetype" -l"fribidi" -l"harfbuzz" -l"harfbuzz-subset" -l"unibreak" -l"ass" -l"uavs3d" -l"avcodec" -l"avdevice" -l"avfilter" -l"avformat" -l"avutil" -l"swresample" -l"swscale" -l"smb2" -l"bluray"',
+    'HEADER_SEARCH_PATHS' => [
+    '$(inherited)',
+    '${PODS_TARGET_SRCROOT}/ijkmedia',
+    '${PODS_TARGET_SRCROOT}/FFToolChain/build/product/xcframework/libass.xcframework/ios-arm64/Headers',
+    '${PODS_TARGET_SRCROOT}/FFToolChain/build/product/xcframework/libbluray.xcframework/ios-arm64/Headers',
+    '${PODS_TARGET_SRCROOT}/FFToolChain/build/product/xcframework/libdvdread.xcframework/ios-arm64/Headers',
+    '${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/uavs3d/include',
+    
+#    '${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/ffmpeg/include',
+    ],
+    'OTHER_LDFLAGS' => '$(inherited) -all_load -l"uavs3d"',
+    
+    
+    'LIBRARY_SEARCH_PATHS[sdk=iphoneos*]' => '$(inherited) ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/uavs3d/lib',
+    
+    
+#    'HEADER_SEARCH_PATHS[sdk=iphoneos*]' => '$(inherited) ${PODS_TARGET_SRCROOT}/ijkmedia ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/ffmpeg/include ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/dvdread/include ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/ass/include ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/bluray/include',
+#    'HEADER_SEARCH_PATHS[sdk=iphonesimulator*]' => '$(inherited) ${PODS_TARGET_SRCROOT}/ijkmedia ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/ffmpeg/include ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/dvdread/include ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/ass/include ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/bluray/include',
+#    'LIBRARY_SEARCH_PATHS[sdk=iphoneos*]' => '$(inherited) ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/ass/lib $(inherited) ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/uavs3d/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/dav1d/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/dvdread/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/ffmpeg/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/freetype/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/fribidi/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/harfbuzz/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/openssl/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/opus/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/unibreak/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/smb2/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal/bluray/lib',
+#    'LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*]' => '$(inherited) ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/ass/lib $(inherited) ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/uavs3d/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/dav1d/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/dvdread/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/ffmpeg/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/freetype/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/fribidi/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/harfbuzz/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/openssl/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/opus/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/unibreak/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/smb2/lib ${PODS_TARGET_SRCROOT}/FFToolChain/build/product/ios/universal-simulator/bluray/lib',
+#    'OTHER_LDFLAGS' => '$(inherited) -l"opus" -l"crypto" -l"ssl" -l"dav1d" -l"dvdread" -l"freetype" -l"fribidi" -l"harfbuzz" -l"harfbuzz-subset" -l"unibreak" -l"ass" -l"uavs3d" -l"avcodec" -l"avdevice" -l"avfilter" -l"avformat" -l"avutil" -l"swresample" -l"swscale" -l"smb2" -l"bluray"',
     'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) IJK_USE_METAL_2=1',
     'METAL_LIBRARY_OUTPUT_DIR' => '${CONFIGURATION_BUILD_DIR}/IJKMediaPlayerKit.framework',
     'MTL_LANGUAGE_REVISION' => 'Metal20'
@@ -134,14 +123,29 @@ TODO: Add long description of the pod here.
   s.osx.vendored_libraries = 'FFToolChain/build/product/macos/universal/**/*.a'
   s.osx.frameworks = 'Cocoa', 'AudioUnit', 'OpenGL', 'GLKit', 'CoreImage'
   s.ios.frameworks = 'UIKit', 'OpenGLES'
-  if ENV['sim'] == '1'
-    s.ios.vendored_libraries = 'FFToolChain/build/product/ios/universal-simulator/**/*.a'
-  else
-    s.ios.vendored_libraries = 'FFToolChain/build/product/ios/universal/**/*.a'
-  end
+#  if ENV['sim'] == '1'
+#    s.ios.vendored_libraries = 'FFToolChain/build/product/ios/universal-simulator/**/*.a'
+#  else
+#    s.ios.vendored_libraries = 'FFToolChain/build/product/ios/universal/**/*.a'
+#  end
+
+
+#  s.ios.vendored_libraries = 'FFToolChain/build/product/ios/universal/unibreak/lib/*.a FFToolChain/build/product/ios/universal/uavs3d/lib/*.a FFToolChain/build/product/ios/universal/smb2/lib/*.a FFToolChain/build/product/ios/universal/opus/lib/*.a FFToolChain/build/product/ios/universal/openssl/lib/*.a FFToolChain/build/product/ios/universal/harfbuzz/lib/*.a FFToolChain/build/product/ios/universal/fribidi/lib/*.a FFToolChain/build/product/ios/universal/freetype/lib/*.a FFToolChain/build/product/ios/universal/dvdread/lib/*.a FFToolChain/build/product/ios/universal/dav1d/lib/*.a FFToolChain/build/product/ios/universal/bluray/lib/*.a FFToolChain/build/product/ios/universal/ass/lib/*.a'
+
+  s.vendored_libraries = 'FFToolChain/build/product/ios/universal/uavs3d/lib/*.a'
+  s.vendored_frameworks = [
+    'FFToolChain/build/product/xcframework/*.xcframework'
+  ]
+#  s.header_mappings_dir = 'FFToolChain/build/product/xcframework/libass.xcframework/ios-arm64/Headers'
+#  s.header_dir = 'FFToolChain/build/product/xcframework/libass.xcframework/ios-arm64/Headers'
+
+
   s.tvos.frameworks = 'UIKit', 'OpenGLES'
 
   s.library = 'z', 'iconv', 'xml2', 'bz2', 'c++', 'lzma'
   s.frameworks = 'AVFoundation', 'AudioToolbox', 'CoreMedia', 'CoreVideo', 'VideoToolbox', 'Metal'
   
+#  s.dependency 'ffmpeg-kit'
+  
 end
+

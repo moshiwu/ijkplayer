@@ -44,13 +44,14 @@
 
 + (BOOL)isBlurayVideo:(NSString *)discRoot keyFile:(NSString *)keyFile
 {
-    const char *diskname = [discRoot UTF8String];
-    if (!diskname) {
-        ALOGE("BD disc root can't be empty\n");
-        return NO;
-    }
-    
-    return ff_is_bluray_video(diskname, NULL);
+    return NO;
+//    const char *diskname = [discRoot UTF8String];
+//    if (!diskname) {
+//        ALOGE("BD disc root can't be empty\n");
+//        return NO;
+//    }
+//    
+//    return ff_is_bluray_video(diskname, NULL);
 }
 
 @end
