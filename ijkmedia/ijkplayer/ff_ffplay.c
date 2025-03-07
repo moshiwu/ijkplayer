@@ -2125,6 +2125,7 @@ static int audio_thread(void *arg)
                                frame->format, frame->ch_layout.nb_channels)    ||
                 av_channel_layout_compare(&is->audio_filter_src.ch_layout, &frame->ch_layout) ||
                 is->audio_filter_src.freq           != frame->sample_rate ||
+                ffp->af_changed == 1 ||
                 is->auddec.pkt_serial               != last_serial;
 
                 if (reconfigure) {
@@ -4851,6 +4852,7 @@ long ffp_get_current_position_l(FFPlayer *ffp)
 
     int64_t pos = 0;
     double pos_clock = get_master_clock(is);
+//    double pos_clock = get_clock(&is->extclk);
     if (isnan(pos_clock)) {
         pos = fftime_to_milliseconds(is->seek_pos);
     } else {

@@ -50,12 +50,22 @@
     NSURL * libURL = [bundle URLForResource:@"default" withExtension:@"metallib"];
     
     NSError *error;
+    // 尝试从bundle加载metallib，如果失败则使用默认库
+    id<MTLLibrary> defaultLibrary = nil;
     
-    id<MTLLibrary> defaultLibrary = [_device newLibraryWithURL:libURL error:&error];
+    if (libURL) {
+        defaultLibrary = [_device newLibraryWithFile:libURL.path error:&error];
+    }
     
-    NSParameterAssert(defaultLibrary);
-    // Load all the shader files with a .metal file extension in the project.
-    //id<MTLLibrary> defaultLibrary = [device newDefaultLibrary];
+    // 如果从bundle加载失败，则使用设备的默认库
+    if (!defaultLibrary) {
+        defaultLibrary = [_device newDefaultLibrary];
+        if (!defaultLibrary) {
+            NSLog(@"无法加载Metal库文件: %@", error);
+            return NO;
+        }
+    }
+    
     id<MTLFunction> vertexFunction = [defaultLibrary newFunctionWithName:@"subVertexShader"];
     NSAssert(vertexFunction, @"can't find subVertexShader Function!");
     NSString *fsh = nil;

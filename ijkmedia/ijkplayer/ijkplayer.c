@@ -269,6 +269,16 @@ void ijkmp_set_property_int64(IjkMediaPlayer *mp, int id, int64_t value)
     pthread_mutex_unlock(&mp->mutex);
 }
 
+void ijkmp_set_audio_filter(IjkMediaPlayer *mp, const char *filter)
+{
+    assert(mp);
+
+    pthread_mutex_lock(&mp->mutex);
+    mp->ffplayer->afilters = strdup(filter);
+    mp->ffplayer->af_changed = 1;
+    pthread_mutex_unlock(&mp->mutex);
+}
+
 IjkMediaMeta *ijkmp_get_meta_l(IjkMediaPlayer *mp)
 {
     assert(mp);

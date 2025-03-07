@@ -179,6 +179,8 @@ void            ijkmp_set_property_float(IjkMediaPlayer *mp, int id, float value
 int64_t         ijkmp_get_property_int64(IjkMediaPlayer *mp, int id, int64_t default_value);
 void            ijkmp_set_property_int64(IjkMediaPlayer *mp, int id, int64_t value);
 
+void            ijkmp_set_audio_filter(IjkMediaPlayer *mp, const char *filter);
+
 // must be freed with free();
 IjkMediaMeta   *ijkmp_get_meta_l(IjkMediaPlayer *mp);
 

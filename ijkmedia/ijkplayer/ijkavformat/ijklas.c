@@ -1614,11 +1614,15 @@ void PlayList_close_read_thread(PlayList* playlist) {
         PlayList_close_rep(playlist);
     }
 
-    SDL_WaitThread(playlist->read_thread, NULL);
-    playlist->read_thread = NULL;
+    if (playlist->read_thread) {
+        SDL_WaitThread(playlist->read_thread, NULL);
+        playlist->read_thread = NULL;
+    }
 
-    SDL_WaitThread(playlist->algo_thread, NULL);
-    playlist->algo_thread = NULL;
+    if (playlist->algo_thread) {
+        SDL_WaitThread(playlist->algo_thread, NULL);
+        playlist->algo_thread = NULL;
+    }
 
     SDL_DestroyMutexP(&playlist->rw_mutex);
     SDL_DestroyMutexP(&playlist->reading_tag_mutex);

@@ -180,7 +180,9 @@ static void (^_logHandler)(IJKLogLevel level, NSString *tag, NSString *msg);
 #if TARGET_OS_IOS
     _notificationManager = [[IJKNotificationManager alloc] init];
     // init audio sink
-    [[IJKAudioKit sharedInstance] setupAudioSession];
+    if (self.controlAudioSession) {
+        [[IJKAudioKit sharedInstance] setupAudioSession];
+    }
     [self registerApplicationObservers];
 #endif
 }
@@ -233,6 +235,7 @@ static void (^_logHandler)(IJKLogLevel level, NSString *tag, NSString *msg);
 
 - (void)dealloc
 {
+    NSLog(@"injected IJKFFMoviePlayerController dealloc");
 //    [self unregisterApplicationObservers];
 }
 
@@ -396,6 +399,14 @@ static void (^_logHandler)(IJKLogLevel level, NSString *tag, NSString *msg);
 - (void)setPauseInBackground:(BOOL)pause
 {
     _pauseInBackground = pause;
+}
+
+- (void)setAudioFilter:(NSString *)filter {
+    assert(_mediaPlayer);
+    if (!_mediaPlayer)
+        return;
+
+    ijkmp_set_audio_filter(_mediaPlayer, filter.UTF8String);
 }
 
 inline static int getPlayerOption(IJKFFOptionCategory category)
@@ -2074,12 +2085,16 @@ static int ijkff_audio_samples_callback(void *opaque, int16_t *samples, int samp
                     break;
             }
             [self pause];
-            [[IJKAudioKit sharedInstance] setActive:NO];
+            if (self.controlAudioSession) {
+                [[IJKAudioKit sharedInstance] setActive:NO];
+            }
             break;
         }
         case AVAudioSessionInterruptionTypeEnded: {
             NSLog(@"IJKFFMoviePlayerController:audioSessionInterrupt: end\n");
-            [[IJKAudioKit sharedInstance] setActive:YES];
+            if (self.controlAudioSession) {
+                [[IJKAudioKit sharedInstance] setActive:YES];
+            }
             if (_playingBeforeInterruption) {
                 [self play];
             }

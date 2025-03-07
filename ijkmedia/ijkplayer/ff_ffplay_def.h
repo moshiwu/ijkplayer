@@ -730,6 +730,8 @@ typedef struct FFPlayer {
 
 inline static void ffp_reset_internal(FFPlayer *ffp)
 {
+    ffp->afilters = NULL;
+    
     /* ffp->is closed in stream_close() */
     av_opt_free(ffp);
 

@@ -82,7 +82,21 @@
     
     NSError *error;
     
-    id<MTLLibrary> defaultLibrary = [_device newLibraryWithFile:libURL.path error:&error];
+    // 尝试从bundle加载metallib，如果失败则使用默认库
+    id<MTLLibrary> defaultLibrary = nil;
+    
+    if (libURL) {
+        defaultLibrary = [_device newLibraryWithFile:libURL.path error:&error];
+    }
+    
+    // 如果从bundle加载失败，则使用设备的默认库
+    if (!defaultLibrary) {
+        defaultLibrary = [_device newDefaultLibrary];
+        if (!defaultLibrary) {
+            NSLog(@"无法加载Metal库文件: %@", error);
+            return NO;
+        }
+    }
     
     NSParameterAssert(defaultLibrary);
     // Load all the shader files with a .metal file extension in the project.
