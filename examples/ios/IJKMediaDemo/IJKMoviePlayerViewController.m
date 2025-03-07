@@ -100,6 +100,11 @@
     }
     //开启硬解
     [options setPlayerOptionIntValue:isVideoToolBox forKey:@"videotoolbox_hwaccel"];
+    
+#if DEBUG
+    self.url = [[NSBundle mainBundle] URLForResource:@"Daoko - 終わらない世界で.mp3" withExtension:nil];
+#endif
+    
 
     if (self.manifest != nil){
         [options setFormatOptionValue:self.manifest forKey:@"manifest_string"];
@@ -112,6 +117,22 @@
 //    self.player.view.frame = CGRectMake(0, 0, 414, 232);
     self.player.scalingMode = IJKMPMovieScalingModeAspectFit;
     self.player.shouldAutoplay = YES;
+    
+//    - (void)setOptionValue:(NSString *)value
+//                    forKey:(NSString *)key
+//                ofCategory:(IJKFFOptionCategory)category;
+
+    IJKFFMoviePlayerController *ttt = (IJKFFMoviePlayerController *)self.player;
+//    [ttt setOptionValue:@"atempo=1.0" forKey:@"af" ofCategory:kIJKFFOptionCategorySwr];
+//    [ttt setOptionValue:@"adelay=5000|5000" forKey:@"af" ofCategory:kIJKFFOptionCategorySwr];
+//    [ttt setAudioFilter:@"adelay=5000|5000"];
+//    [ttt setAudioFilter:@"loudnorm=I=-18:TP=-1.5:LRA=11:measured_I=-27.2:measured_TP=-14.4:measured_LRA=0.1:measured_thresh=-37.7:offset=-0.7:linear=true:print_format=summary"];
+//    [ttt setAudioFilter:@"aecho=0.2:0.5"];
+    [ttt setAudioFilter:@"rubberband=pitch=1.2"];
+    
+//    [ttt setAudioFilter:@"[0:a]bass=g=10, treble=g=5, stereowiden, surround[a]; [1:a]acompressor, anequalizer=f=1000:width_type=o:width=200, afade=in:st=0:d=10, chorus=0.7:0.9:55:0.4:0.25:2, aecho=0.8:0.9:1000:0.3"];
+//    [ttt setAudioFilter:@"bass=g=10, treble=g=5, stereowiden, surround"];
+
     
     IJKSDLSubtitlePreference p = self.player.subtitlePreference;
     p.PrimaryColour = 16776960;
@@ -174,9 +195,17 @@
 {
     if ([self.player isKindOfClass:[IJKFFMoviePlayerController class]]) {
         IJKFFMoviePlayerController *player = self.player;
-        player.shouldShowHudView = !player.shouldShowHudView;
+//        player.shouldShowHudView = !player.shouldShowHudView;
+//        sender.title = (player.shouldShowHudView ? @"HUD On" : @"HUD Off");
         
-        sender.title = (player.shouldShowHudView ? @"HUD On" : @"HUD Off");
+        if (self.openFilter) {
+            [player setAudioFilter:@"bass=g=10, treble=g=5, stereowiden, surround, chorus=0.7:0.9:55:0.4:0.25:2"];
+            NSLog(@"injected filter open");
+        } else {
+            [player setAudioFilter:@""];
+            NSLog(@"injected filter close");
+        }
+        self.openFilter = !self.openFilter;
     }
 }
 

@@ -1,5 +1,5 @@
 #1.7.0
-install! 'cocoapods', :generate_multiple_pod_projects => true
+#install! 'cocoapods', :generate_multiple_pod_projects => true
 
 target 'IJKMediaDemo' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -7,8 +7,28 @@ target 'IJKMediaDemo' do
 
   # Pods for IJKMediaDemo
 
-  platform :ios, '11.0'
+  platform :ios, '12.2'
 
   pod 'IJKMediaPlayerKit', :path => '../../'
+#  pod 'ffmpeg-kit', :path => '/Users/moqiaowen/Downloads/ffmpeg-kit'
+end
+
+post_install do |installer|
+
+  # show framework headers
+  installer.generated_projects.each do |project|
+    project.targets.each do |target|
+      dir = project.path + "../#{target.name}"
+      if Dir.exist?(dir)
+        Dir.glob("#{dir}/**/*.framework") do |p|
+          group = project.pod_group(target.name)
+          headersDir = "#{p}/Headers"
+          if Dir.exist?(headersDir)
+            project.add_file_reference(headersDir, group, true)
+          end
+        end
+      end
+    end
+  end
 
 end

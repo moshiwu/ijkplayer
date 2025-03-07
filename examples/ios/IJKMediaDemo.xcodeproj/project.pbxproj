@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D51AC8E2D6217C70025F2A5 /* Daoko - 終わらない世界で.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D51AC8D2D6217C70025F2A5 /* Daoko - 終わらない世界で.mp3 */; };
 		55E809E21B143C47003E98A5 /* IJKDemoMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E809E11B143C47003E98A5 /* IJKDemoMainViewController.m */; };
 		55E809E41B143C85003E98A5 /* IJKDemoMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55E809E31B143C85003E98A5 /* IJKDemoMainViewController.xib */; };
 		55E809E61B145B55003E98A5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55E809E51B145B55003E98A5 /* LaunchScreen.xib */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		08F8087894891BAA1F6600F1 /* Pods-IJKMediaDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IJKMediaDemo.debug.xcconfig"; path = "Target Support Files/Pods-IJKMediaDemo/Pods-IJKMediaDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		123AD396E450B6E939560857 /* Pods_IJKMediaDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IJKMediaDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D51AC8D2D6217C70025F2A5 /* Daoko - 終わらない世界で.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Daoko - 終わらない世界で.mp3"; sourceTree = "<group>"; };
 		55E809E01B143C47003E98A5 /* IJKDemoMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKDemoMainViewController.h; sourceTree = "<group>"; };
 		55E809E11B143C47003E98A5 /* IJKDemoMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJKDemoMainViewController.m; sourceTree = "<group>"; };
 		55E809E31B143C85003E98A5 /* IJKDemoMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IJKDemoMainViewController.xib; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 		E6903F0517EAF70200CFD954 /* IJKMediaDemo */ = {
 			isa = PBXGroup;
 			children = (
+				3D51AC8D2D6217C70025F2A5 /* Daoko - 終わらない世界で.mp3 */,
 				E6903F0E17EAF70200CFD954 /* IJKAppDelegate.h */,
 				E6903F0F17EAF70200CFD954 /* IJKAppDelegate.m */,
 				E6A9B55C17EDA6AC00A1A500 /* View Controllers */,
@@ -212,7 +215,6 @@
 				E6903EF817EAF70200CFD954 /* Sources */,
 				E6903EF917EAF70200CFD954 /* Frameworks */,
 				E6903EFA17EAF70200CFD954 /* Resources */,
-				B4817AAC0936B46C5D6FB3B8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -265,6 +267,7 @@
 				E6903F0A17EAF70200CFD954 /* InfoPlist.strings in Resources */,
 				E67323AC1B69E76100CB9036 /* MoviePlayerImages.xcassets in Resources */,
 				E6903F1217EAF70200CFD954 /* Default.png in Resources */,
+				3D51AC8E2D6217C70025F2A5 /* Daoko - 終わらない世界で.mp3 in Resources */,
 				E6903F1417EAF70200CFD954 /* Default@2x.png in Resources */,
 				E6903F1617EAF70200CFD954 /* Default-568h@2x.png in Resources */,
 				E67323A71B69E6F800CB9036 /* AppIcons.xcassets in Resources */,
@@ -281,24 +284,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B4817AAC0936B46C5D6FB3B8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IJKMediaDemo/Pods-IJKMediaDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/IJKMediaPlayerKit/IJKMediaPlayerKit.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IJKMediaPlayerKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IJKMediaDemo/Pods-IJKMediaDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		FA469C82FB92C17789D75FCD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -470,7 +455,7 @@
 				GCC_PREFIX_HEADER = IJKMediaDemo/IJKMediaDemo.pch;
 				INFOPLIST_FILE = "IJKMediaDemo/IJKMediaDemo-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = IJKMediaPlayer;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 0.10.2;
 				ONLY_ACTIVE_ARCH = YES;
@@ -502,7 +487,7 @@
 				GCC_PREFIX_HEADER = IJKMediaDemo/IJKMediaDemo.pch;
 				INFOPLIST_FILE = "IJKMediaDemo/IJKMediaDemo-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = IJKMediaPlayer;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 0.10.2;
 				ONLY_ACTIVE_ARCH = YES;
