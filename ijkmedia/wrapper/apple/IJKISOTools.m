@@ -50,7 +50,11 @@
         return NO;
     }
     
-    return ff_is_bluray_video(diskname, NULL);
+    // 简单实现：检查是否含有蓝光视频的特征目录
+    NSString *bdmvPath = [discRoot stringByAppendingPathComponent:@"BDMV"];
+    BOOL isDirectory = NO;
+    BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:bdmvPath isDirectory:&isDirectory];
+    return exists && isDirectory;
 }
 
 @end

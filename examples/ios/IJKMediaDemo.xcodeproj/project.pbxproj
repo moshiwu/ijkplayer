@@ -234,7 +234,7 @@
 				ORGANIZATIONNAME = bilibili;
 				TargetAttributes = {
 					E6903EFB17EAF70200CFD954 = {
-						DevelopmentTeam = 96C96H28CU;
+						DevelopmentTeam = 5XD8W9TZZY;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -465,7 +465,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 96C96H28CU;
+				DEVELOPMENT_TEAM = 5XD8W9TZZY;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = IJKMediaDemo/IJKMediaDemo.pch;
 				INFOPLIST_FILE = "IJKMediaDemo/IJKMediaDemo-Info.plist";
@@ -497,7 +497,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 96C96H28CU;
+				DEVELOPMENT_TEAM = 5XD8W9TZZY;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = IJKMediaDemo/IJKMediaDemo.pch;
 				INFOPLIST_FILE = "IJKMediaDemo/IJKMediaDemo-Info.plist";
